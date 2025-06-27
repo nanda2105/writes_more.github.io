@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1 style= "font-size:50px; text-align:center;">Book a title, write some more</h1>
+<p style= "font-size:22px; text-align:center; line-height:35px; margin-bottom: 50px;">Inspirations strike me, whether it be at mid-day or while having breakfast. It's hard to always stick to a concept without getting lost. <br>Hi, I am Avinanda your author behind the screens.</p>
+<hr>
+<img style= "margin-top:28px; margin-left:75px; width:30%;" src="image 004.jpg">
+<img style="width:30%;" src="image 008.jpg">
+<img style="margin-left:28px; width:30%;" src="image 007.jpg">
+<hr>
+<iframe src="https://docs.google.com/document/d/e/2PACX-1vS1be-xxJqXHLlsZ0TBHBGYAIDNf-4foj_RKeJtD3qXvXq0OdR285VgRQ5WU6NBigNwNyfP-wabxSWu/pub?embedded=true" width="700" height="800"></iframe>
+<hr>
+<p style= "font-size:22px; text-align:center; line-height:35px; margin-bottom: 50px;"> Thanks for reading </p>
+<form id="comment-form">
+<textarea id="comment-input" name="comment" placeholder="Add your comment here"></textarea>
+<button type="submit">Submit</button>
+</form>
+<div id="commrnt-display"></div>
+<style>
+#comment-input {
+    width: 90%;
+    height: 20%;
+    
+  }
+</style>
+<script>
+  const commentForm = document.getElementById('comment-form');
+  const commentInput = document.getElementById('comment-input');
+  const commentDisplay = document.getElementById('comment-display');
+  const comments = [];
+
+  commentForm.addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent the default form submission
+    const commentText = commentInput.value.trim();
+
+    if (commentText !== "") {
+      comments.push(commentText);
+      commentInput.value = ""; // Clear the input field
+      displayComments();
+    }
+  });
+
+  function displayComments() {
+    commentDisplay.innerHTML = ""; // Clear previous comments
+    comments.forEach(comment => {
+      const commentElement = document.createElement('p');
+      commentElement.textContent = comment;
+      commentDisplay.appendChild(commentElement);
+    });
+  }
+</script>
+</html>
